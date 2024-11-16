@@ -1,4 +1,4 @@
-import { TreeNode } from "@/sharedTypes/TreeNodes";
+import { TreeNode } from "@/types/TreeNode";
 
 export const sampleData: TreeNode[] = [
     {
