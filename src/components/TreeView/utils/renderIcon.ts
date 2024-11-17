@@ -3,15 +3,9 @@ const renderIcon = (nodeClass: string): string => {
     case "db":
       return "🛢";
     case "table":
-      return "⛩";
-    case "view":
-      return "👁";
+      return "📄";
     case "schema":
       return "📜";
-    case "model":
-      return "🧠";
-    case "agent":
-      return "🤖";
     default:
       return "📂";
   }
