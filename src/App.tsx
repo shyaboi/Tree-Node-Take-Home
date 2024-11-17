@@ -1,9 +1,11 @@
 import "./App.css";
+import TreeView from "./components/TreeView";
+import { sampleData } from "./data/sampleData";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello Tree Node World</h1>
+      <TreeView data={sampleData} />
     </>
   );
 }
