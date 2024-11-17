@@ -5,11 +5,12 @@ import TextDisplay from "./TextDisplay";
 import TagsDisplay from "./TagDisplay";
 
 interface TreeNodeProps {
-  node: TreeNodeType;
   depth: number;
+  onDelete: (name: string) => void;
+  node: TreeNodeType;
 }
 
-const TreeNode = ({ depth = 0, node }: TreeNodeProps) => {
+const TreeNode = ({ depth, onDelete, node }: TreeNodeProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   if (node.visible === false) return null;
@@ -61,7 +62,13 @@ const TreeNode = ({ depth = 0, node }: TreeNodeProps) => {
             className="text-red-500 bg-red-200 px-1 text-xs ml-auto rounded hover:cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
-              alert(`Delete ${node.name}?`);
+              if (
+                window.confirm(
+                  `Are you sure you want to delete "${node.name}"?`
+                )
+              ) {
+                onDelete(node.name);
+              }
             }}
           >
             Delete
@@ -77,7 +84,12 @@ const TreeNode = ({ depth = 0, node }: TreeNodeProps) => {
           role="group"
         >
           {node.children.map((child) => (
-            <TreeNode key={child.name} node={child} depth={depth + 1} />
+            <TreeNode
+              key={child.name}
+              node={child}
+              depth={depth + 1}
+              onDelete={onDelete}
+            />
           ))}
         </div>
       )}
