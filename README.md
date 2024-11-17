@@ -20,7 +20,7 @@ This is a reusable, and type-safe **Tree View** component built with **React**, 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/shyaboi/Tree-Node-Take-Home
+git clone https://github.com/shyaboi/Tree-Node-Take-Home.git
 cd Tree-Node-Take-Home
 ```
 
